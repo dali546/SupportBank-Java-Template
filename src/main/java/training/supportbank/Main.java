@@ -36,7 +36,7 @@ public class Main {
 
     private static int indexOfAccountWithName(List<Account> accountList, String name) {
         for (Account account : accountList) {
-            if (account.getName().equals(name)) {
+            if (account.getName().equalsIgnoreCase(name)) {
                 return accountList.indexOf(account);
             }
         }
