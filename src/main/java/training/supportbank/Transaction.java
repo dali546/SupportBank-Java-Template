@@ -2,17 +2,18 @@ package training.supportbank;
 import java.util.Date;
 
 public class Transaction {
-    Date date;
-    Account from,to;
+    String date;
+    String from,to;
     double amount;
     String narrative;
 
 
-    public Transaction(Date date, Account from, Account to, double amount, String narrative) {
+    public Transaction(String date, String from, String to, String narrative, double amount) {
         this.date = date;
         this.from = from;
         this.to = to;
-        this.amount = amount;
         this.narrative = narrative;
+        this.amount = amount;
+
     }
 }

@@ -5,16 +5,21 @@ import java.util.Date;
 import java.util.List;
 
 public class Account {
+
+    public Account(String name) {
+        this.name = name;
+    }
+
     private String name;
-    //Transaction transaction;
+
     private List<Transaction> transactionList = new ArrayList<>();
 
     public List<Transaction> getTransactionList() {
         return transactionList;
     }
 
-    public void addTransaction(Date date, Account from, Account to, String narrative, double amount){
-        transactionList.add(new Transaction());
+    public void addTransaction(Date date, String from, String to, String narrative, double amount){
+        transactionList.add(new Transaction(date, from, to, narrative, amount));
     }
 
     public String getName() {
