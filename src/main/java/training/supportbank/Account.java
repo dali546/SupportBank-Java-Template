@@ -1,7 +1,6 @@
 package training.supportbank;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Account {
@@ -18,7 +17,7 @@ public class Account {
         return transactionList;
     }
 
-    public void addTransaction(Date date, String from, String to, String narrative, double amount){
+    public void addTransaction(String date, String from, String to, String narrative, double amount){
         transactionList.add(new Transaction(date, from, to, narrative, amount));
     }
 

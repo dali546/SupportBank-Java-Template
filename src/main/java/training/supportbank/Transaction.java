@@ -7,7 +7,6 @@ public class Transaction {
     double amount;
     String narrative;
 
-
     public Transaction(String date, String from, String to, String narrative, double amount) {
         this.date = date;
         this.from = from;

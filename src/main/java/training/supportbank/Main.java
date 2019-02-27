@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -21,20 +22,32 @@ public class Main {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(path.toString()));
 
-            while ((line = bufferedReader.readLine()) != null)){
+            while ((line = bufferedReader.readLine()) != null) {
 
                 if (!line.equals("Date,From,To,Narrative,Amount")) {
 
                     String[] transaction = line.split(splitBy);
 
-                    for (Account account : accountList) {
-
-                        if (transaction[1].equals(account.getName())) {
-                            account.addTransaction(transaction[0], transaction[1], transaction[2], transaction[3], Integer.parseInt(transaction[4]);
-                        } else {
-                            accountList.add(new Account(transaction[1]));
-                            account.addTransaction(transaction[0], transaction[1], transaction[2], transaction[3], Integer.parseInt(transaction[4]);
-                        }
+                    int i = indexOfAccountWithName(accountList,transaction[1]);
+                    if (i != -1) {
+                        accountList.get(i).addTransaction(
+                                transaction[0],
+                                transaction[1],
+                                transaction[2],
+                                transaction[3],
+                                Double.parseDouble(transaction[4])
+                        );
+                        System.out.println(accountList.get(i).getTransactionList().get(0).from);
+                    } else {
+                        Account account = new Account(transaction[1]);
+                        accountList.add(account);
+                        account.addTransaction(
+                                transaction[0],
+                                transaction[1],
+                                transaction[2],
+                                transaction[3],
+                                Double.parseDouble(transaction[4]));
+                        System.out.println(account.getTransactionList().get(0).from);
                     }
                 }
             }
@@ -43,5 +56,14 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static int indexOfAccountWithName(List<Account> accountList, String name) {
+        for (Account account: accountList) {
+            if (account.getName().equals(name)){
+                return accountList.indexOf(account);
+            }
+        }
+        return -1;
     }
 }
