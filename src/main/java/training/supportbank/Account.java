@@ -21,6 +21,8 @@ public class Account {
         transactionList.add(new Transaction(date, from, to, narrative, amount));
     }
 
+
+
     public String getName() {
         return name;
     }

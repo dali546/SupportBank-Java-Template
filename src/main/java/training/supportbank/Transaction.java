@@ -1,5 +1,4 @@
 package training.supportbank;
-import java.util.Date;
 
 public class Transaction {
     String date;
@@ -13,6 +12,6 @@ public class Transaction {
         this.to = to;
         this.narrative = narrative;
         this.amount = amount;
-
     }
+
 }
