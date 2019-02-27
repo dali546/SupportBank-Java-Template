@@ -110,8 +110,8 @@ public class Main {
 
             }
         } else if (i == 2) {
-            String name;
-            int index;
+            String name = "";
+            int index = 0;
 
             boolean valid = false;
 
@@ -124,9 +124,7 @@ public class Main {
                 }
             }
 
-            System.out.println("Enter User Name");
-            name = scanner.nextLine();
-            index = indexOfAccountWithName(accountList, name);
+
             if (accountList.get(index).getName().equals(name)) {
                 Account person = accountList.get(index);
                 System.out.println("Account Name: " + name);
