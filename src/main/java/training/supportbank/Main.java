@@ -21,7 +21,7 @@ public class Main {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(path.toString()));
 
-            while ((line = bufferedReader.readLine()) != null)){
+            while ((line = bufferedReader.readLine()) != null){
 
                 if (!line.equals("Date,From,To,Narrative,Amount")) {
 
@@ -30,10 +30,10 @@ public class Main {
                     for (Account account : accountList) {
 
                         if (transaction[1].equals(account.getName())) {
-                            account.addTransaction(transaction[0], transaction[1], transaction[2], transaction[3], Integer.parseInt(transaction[4]);
+                            account.addTransaction(transaction[0], transaction[1], transaction[2], transaction[3], Integer.parseInt(transaction[4]));
                         } else {
                             accountList.add(new Account(transaction[1]));
-                            account.addTransaction(transaction[0], transaction[1], transaction[2], transaction[3], Integer.parseInt(transaction[4]);
+                            account.addTransaction(transaction[0], transaction[1], transaction[2], transaction[3], Integer.parseInt(transaction[4]));
                         }
                     }
                 }
