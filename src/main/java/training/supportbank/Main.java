@@ -119,7 +119,7 @@ public class Main {
                 System.out.println("Enter User Name");
                 name = scanner.nextLine();
                 index = indexOfAccountWithName(accountList, name);
-                if (accountList.get(index).getName().equals(name)){
+                if (index!=-1){
                     valid = true;
                 }
             }
