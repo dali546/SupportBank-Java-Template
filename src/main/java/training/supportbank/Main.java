@@ -28,17 +28,21 @@ public class Main {
 
                     String[] transaction = line.split(splitBy);
 
-                    int i = indexOfAccountWithName(accountList,transaction[1]);
-                    if (i != -1) {
-                        accountList.get(i).addTransaction(
+                    int from = indexOfAccountWithName(accountList,transaction[1]);
+
+                    int to = indexOfAccountWithName(accountList, transaction[2]);
+
+                    if (from != -1) {
+                        accountList.get(from).addTransaction(
                                 transaction[0],
                                 transaction[1],
                                 transaction[2],
                                 transaction[3],
-                                Double.parseDouble(transaction[4])
-                        );
-                        System.out.println(accountList.get(i).getTransactionList().get(0).from);
-                    } else {
+                                Double.parseDouble(transaction[4]));
+
+                        System.out.println(accountList.get(from).getTransactionList().get(0).from);
+                    }
+                    else {
                         Account account = new Account(transaction[1]);
                         accountList.add(account);
                         account.addTransaction(
@@ -47,7 +51,30 @@ public class Main {
                                 transaction[2],
                                 transaction[3],
                                 Double.parseDouble(transaction[4]));
+
                         System.out.println(account.getTransactionList().get(0).from);
+                    }
+                    
+                    if (to != -1) {
+                        accountList.get(to).addTransaction(
+                                transaction[0],
+                                transaction[1],
+                                transaction[2],
+                                transaction[3],
+                                Double.parseDouble(transaction[4]));
+
+                        System.out.println(accountList.get(to).getTransactionList().get(0).to);
+                    }
+                    else {
+                        Account account = new Account(transaction[2]);
+                        accountList.add(account);
+                        account.addTransaction(
+                                transaction[0],
+                                transaction[1],
+                                transaction[2],
+                                transaction[3],
+                                Double.parseDouble(transaction[4]));
+                        System.out.println(account.getTransactionList().get(0).to);
                     }
                 }
             }
