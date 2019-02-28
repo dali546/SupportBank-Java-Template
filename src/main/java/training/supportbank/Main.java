@@ -53,6 +53,7 @@ public class Main {
 
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(path.toString()));
+//            bufferedReader.readLine();
 
             while ((line = bufferedReader.readLine()) != null) {
 
